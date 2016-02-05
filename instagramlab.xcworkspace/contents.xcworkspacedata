@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:instagramlab/PhotoCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:instagramlab.xcodeproj">
    </FileRef>
    <FileRef
