@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="OIa-tF-XwQ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--Photos View Controller-->
@@ -18,11 +18,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="com.instagramlab.photocell" rowHeight="205" id="RIp-Zv-Vqm" customClass="PhotoCell" customModule="instagramlab" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="205"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="com.instagramlab.photocell" rowHeight="205" id="RIp-Zv-Vqm" customClass="PhotoCell" customModule="instagramlab" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="205"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RIp-Zv-Vqm" id="N3Q-qy-9p2">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="204.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="204.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LNH-ZI-h5C">
@@ -41,6 +41,7 @@
                                         <connections>
                                             <outlet property="photoView" destination="Hrm-vi-QWX" id="P8g-i9-u9i"/>
                                             <outlet property="titleLabel" destination="LNH-ZI-h5C" id="Imj-5T-Gev"/>
+                                            <segue destination="V3B-SI-5gZ" kind="push" id="vqN-ij-BIk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -48,11 +49,54 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mJw-Jf-uVd"/>
                     <connections>
                         <outlet property="tableView" destination="quT-bd-lcx" id="ejF-oN-OAO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="742" y="340"/>
+        </scene>
+        <!--Photo Details View Controller-->
+        <scene sceneID="T7D-ez-5Z5">
+            <objects>
+                <viewController id="V3B-SI-5gZ" customClass="PhotoDetailsViewController" customModule="instagramlab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BYR-zg-lAG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="j5U-ZC-l5w">
+                                <rect key="frame" x="20" y="56" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T2r-DS-pFd"/>
+                    <connections>
+                        <outlet property="photoImage" destination="j5U-ZC-l5w" id="zQc-i9-GsJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mez-Uc-Fbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1262" y="340"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cYP-8K-4GU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OIa-tF-XwQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="L3J-kk-Yg4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="w0B-0j-bbh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iY5-no-are" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="210" y="340"/>
         </scene>

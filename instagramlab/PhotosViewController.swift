@@ -16,7 +16,7 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var photos :[NSDictionary]?
     
-    override func viewDidLoad() {
+     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
@@ -71,6 +71,7 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         }
         
+        cell.selectionStyle = .None
         
         return cell
     }
@@ -83,13 +84,36 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
+    /*
+    func tableView(tableView:UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath){
+        
+        tableView.deselectRowAtIndexPath(indexPath,animated:true)
+        
+    }
+    */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        /*
+        var vc = segue.destinationViewController as! PhotoDetailsViewController
+        
+        var indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+        */
+
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        
+        let photo = photos![indexPath!.row]
+        let photodetailsViewController = segue.destinationViewController as! PhotoDetailsViewController
+        photodetailsViewController.photo = photo
+        
+        //tableView.deselectRowAtIndexPath(indexPath!, animated: true)
+    }
     
 }
 
